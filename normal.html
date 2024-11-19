@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normal.css') }}" type="text/css">
+</head>
+<body>
+    <div id="emotion-detected">
+        Emotion: <span id="detected-emotion"></span>
+    </div>
+
+    <div id="recommendation">
+        <p>Recommended Playlist:</p>
+        <button id="recommendation-btn">Open Playlist in Spotify</button>
+    </div>
+
+    <div id="back-home-container">
+        <button id="back-home-btn">Go to Home</button>
+    </div>
+
+    <!--LOGOUT BUTTON-->
+    <div id="back-home-container">
+        <button id="logout-btn" onclick="logoutFromSpotify()">Logout</button>
+    </div>
+
+    <script>
+        // Get the emotion from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const emotion = urlParams.get('emotion') || 'happy';
+        
+        document.getElementById('detected-emotion').textContent = emotion; // Display the emotion
+
+        // Function to get the playlist URL based on emotion
+        function getPlaylistUrlBasedOnEmotion(emotion) {
+            const truncatedEmotion = emotion; // Get the part after the underscore
+            const emotionPlaylists = {
+                 'happy': 'spotify:playlist:4PGxMjK8uFc8N9suEWvfDZ',
+        'sad': 'spotify:playlist:7rxJ5ST7w0dKYe0J7MGUuD',
+        'angry': 'spotify:playlist:6yRvkkvLeTTO4BGdiPCjbo',
+        'disgust': 'spotify:playlist:1AW5OqKLxBtMc177Yn28QA',
+        'neutral': 'spotify:playlist:64QQ1iHIz6GIgS44YxWy6A',
+        'surprise': 'spotify:playlist:1G7PCOSXsha4n6mmP1XKZJ',
+        'fear': 'spotify:playlist:3BPeUJe6fNt7eiG9MLJ301'
+            };
+            return emotionPlaylists[truncatedEmotion] || emotionPlaylists['happy'];
+        }
+
+        document.getElementById('recommendation-btn').onclick = () => {
+            const playlistUrl = getPlaylistUrlBasedOnEmotion(emotion);
+            window.open(playlistUrl, '_blank'); // Open the playlist in a new tab
+        };
+
+        document.getElementById('back-home-btn').onclick = () => {
+            window.location.href = '/'; // Redirect to home
+        };
+
+        // Logout function
+        function logoutFromSpotify() {
+            // Open a new window to log out from Spotify
+            var logoutWindow = window.open('https://accounts.spotify.com/en/logout', '_blank');
+
+            // Optionally wait for a moment before redirecting to the main page
+            setTimeout(function() {
+                // Close the logout window after a short delay
+                if (logoutWindow) {
+                    logoutWindow.close();
+                }
+                // Redirect to the Flask logout route
+                window.location.href = '/logout';  // Your Flask logout route
+            }, 2000);  // Adjust the timeout as necessary
+        }
+    </script>
+</body>
+</html>

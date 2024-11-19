@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Emotion Stream Detection Result</title>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}" type="text/css">
+</head>
+<body>
+    <div id="emotion-detected">
+        Detected Emotion: <span id="detected-emotion"></span>
+    </div>
+    <section id="player-container">
+    
+        <h1>Emotion Stream Music & Podcast Playback</h1>
+        <p id="status">Initializing...</p>
+        <div id="controls">
+            <button class="control-button" id="prev-btn" disabled>⏮</button>
+            <button class="control-button" id="play-btn" disabled>▶</button>
+            <button class="control-button" id="pause-btn" disabled>⏸</button>
+            <button class="control-button" id="next-btn" disabled>⏭</button>
+        </div>
+        <div id="now-playing">Not playing anything.</div>
+    
+   <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for a song or podcast..." />
+        <button id="search-btn">Search</button>
+        <div id="search-results"></div>
+  
+    </section>
+</div>
+    <div id="back-home-container">
+        <button id="back-home-btn">Go to Home</button>
+    </div>
+
+    <!-- LOGOUT BUTTON -->
+    <div id="logout-container">
+        <button id="logout-btn" onclick="logoutFromSpotify()">Logout</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/result.js') }}">
+       
+    </script>
+</body>
+</html>
