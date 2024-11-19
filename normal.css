@@ -1,0 +1,192 @@
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #bb276c, #34958a, #f14800, #521732);
+    background-size: 400% 400%; /* For gradient animation */
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.5s ease-in-out;
+    animation: gradientShift 15s ease infinite;
+}
+
+/* Keyframes for gradient background animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#emotion-detected {
+    font-size: 2.5em;
+    color: #F6F1FC; /* Soft lavender */
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+#emotion-detected::before {
+    content: '🎧';
+    position: absolute;
+    left: -50px;
+    font-size: 1.5em;
+    animation: bounce 1.5s infinite;
+}
+
+/* Keyframe for bouncing headphone icon */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#recommendation p {
+    font-size: 1.8em;
+    color: #F6F1FC;
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+button {
+    font-size: 1.2em;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease-in-out;
+    z-index: -1;
+}
+
+button:hover::before {
+    left: 0;
+}
+
+#recommendation-btn {
+    background-color: #c2185b; /* Bright pink */
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(226, 60, 135, 0.5);
+}
+
+#back-home-btn, #logout-btn {
+    background-color: #d73782; /* Vibrant yellow */
+    color: #fff;
+    margin: 10px;
+    box-shadow: 0 10px 20px rgba(253, 216, 53, 0.5);
+}
+
+/* Hover effects */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Button ripple effect */
+button::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    opacity: 0;
+    z-index: -1;
+}
+
+button:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+}
+
+/* Pseudo-elements to enhance the buttons */
+#recommendation-btn::after {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#back-home-btn::after, #logout-btn::after {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth hover transitions for text colors */
+button:hover {
+    color: #333;
+}
+
+#back-home-container {
+    margin-top: 20px;
+}
+
+/* Adding animations to the detected emotion text */
+#detected-emotion {
+    display: inline-block;
+    animation: popUp 1s ease-out;
+    background: linear-gradient(45deg, #F49AC2, #FDD835);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Button hover animation */
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    #emotion-detected, #recommendation p {
+        font-size: 1.6em;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    #detected-emotion {
+        font-size: 1.5em;
+    }
+}
+

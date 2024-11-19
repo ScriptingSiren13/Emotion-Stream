@@ -1,0 +1,155 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #bb276c, #34958a, #f14800, #521732);
+    background-size: 400% 400%;
+    color: #333; /* Dark text for readability */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: gradientShift 15s ease infinite; /* Animation for the gradient background */
+}
+
+/* Keyframes for gradient background animation */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Emotion Detected Box */
+#emotion-detected {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Player Container */
+#player-container {
+    display: inline-block;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Controls section */
+#controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Control buttons (like Play, Pause, etc.) */
+.control-button {
+    background-color: #bb276c;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.control-button:hover {
+    background-color: #34958a; /* Changes to #34958a on hover */
+}
+
+/* Now Playing text */
+#now-playing {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555; /* Darker text for now playing */
+}
+
+/* Search Container */
+#search-container {
+    margin-top: 20px;
+}
+
+/* Search Input styling */
+#search-input {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
+}
+
+#search-input:focus {
+    border-color: #f14800; /* Border turns #f14800 on focus */
+    outline: none;
+}
+
+/* Search Button */
+#search-btn {
+    padding: 10px;
+    background-color: #34958a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: #f14800; /* Changes to #f14800 on hover */
+}
+
+/* Search Results */
+#search-results {
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Search Result Items */
+.search-result {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.search-result:hover {
+    background-color: #e0e0e0; /* Slightly darker gray on hover */
+}
+
+/* Back Home Button */
+#back-home-container {
+    margin-top: 30px;
+}
+
+#back-home-btn {
+    padding: 10px 20px;
+    background-color: #521732; /* Using #521732 for the back button */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#back-home-btn:hover {
+    background-color: #bb276c; /* Changes to #bb276c on hover */
+}
+
